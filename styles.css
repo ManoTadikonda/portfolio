@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a; /* Black background */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Amatic SC', cursive; /* Scribbled font */
+    color: #ffffff; /* White content */
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.text {
+    font-size: 5rem;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red; /* Red text */
+    text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white; /* White outline */
+    opacity: 0;
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translate(-100vw, -50%) rotate(-5deg); /* Left, centered */
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(0deg); /* Middle */
+        opacity: 1;
+    }
+}
+
+@keyframes fallDown {
+    from {
+        transform: translate(-50%, -100vh); /* Top */
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%); /* Middle */
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -50%) scale(1); /* Middle */
+        opacity: 1;
+    }
+    to {
+        transform: translate(-50%, 50vh) scale(1.2); /* Down */
+        opacity: 0;
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translate(100vw, -50%); /* Right */
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%); /* Middle */
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeftOut {
+    from {
+        transform: translate(-50%, -50%) scale(1); /* Middle */
+        opacity: 1;
+    }
+    to {
+        transform: translate(-100vw, -50%) scale(1.2); /* Left */
+        opacity: 0;
+    }
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.content a {
+    color: red;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border: 2px solid red;
+    padding: 10px 20px;
+    transition: background 0.3s ease;
+}
+
+.content a:hover {
+    background: red;
+    color: #1a1a1a;
+}

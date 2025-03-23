@@ -3,21 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mano | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <title>Mano Tadikonda - Portfolio</title>
+    <!-- Load Winky Sans (Fallback to a similar font if not available) -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div id="hi" class="text">Hi</div>
-        <div id="name" class="text">I am Mano</div>
-        <div id="loading" class="text">Loading</div>
-        <div id="content" class="content">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Grad Student in Information Systems | Data & AR Fun</p>
-            <a href="#projects">Check It Out</a>
+    <!-- Animation Section -->
+    <div id="intro">
+        <span id="hi">Hi</span>
+        <span id="name">I am Mano</span>
+        <span id="loading">Loading</span>
+    </div>
+
+    <!-- Get Started Section -->
+    <div id="get-started" class="hidden">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Grad Student in Information Systems | Data & AR Fun</p>
+        <button id="pick-path">Pick Your Path</button>
+        <button id="see-journey">See My Journey</button>
+    </div>
+
+    <!-- Timeline Sections (See My Journey) -->
+    <div id="timeline" class="hidden">
+        <div id="education-bachelors">
+            <h2>Bachelors in Information Technology (2018-2022)</h2>
+        </div>
+        <div id="leadership-woofaid">
+            <h2>WoofAid (Dec 2020 - Dec 2022)</h2>
+        </div>
+        <div id="work-internship">
+            <h2>Cognizant Internship (Feb 2022 - Nov 2022)</h2>
+        </div>
+        <div id="work-fulltime">
+            <h2>Cognizant Full-Time (Dec 2022 - Dec 2023)</h2>
+        </div>
+        <div id="education-masters">
+            <h2>Masters in Information Systems (Sep 2024 - May 2026)</h2>
+        </div>
+        <div id="projects-masters">
+            <h2>Projects - Hackathons</h2>
+        </div>
+        <div id="skills">
+            <h2>Skills</h2>
+        </div>
+        <div id="leadership-spring">
+            <h2>Experiential Spring Break (Mar 2025)</h2>
+        </div>
+        <div id="contact">
+            <h2>Contact Me</h2>
+        </div>
+        <div id="wrap-up">
+            <h2>Thanks for Visiting!</h2>
         </div>
     </div>
+
+    <!-- Pick Your Path Menu (Hidden for Now) -->
+    <div id="menu" class="hidden">
+        <!-- We’ll add this later -->
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

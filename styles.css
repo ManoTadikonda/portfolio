@@ -1,119 +1,130 @@
 body {
     margin: 0;
     padding: 0;
-    background: #1a1a1a; /* Black background */
+    background: linear-gradient(to bottom, #212121, #1a1a1a);
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Amatic SC', cursive; /* Scribbled font */
-    color: #ffffff; /* White content */
+    font-family: 'Roboto', sans-serif;
+    color: red;
     overflow: hidden;
 }
 
-.container {
-    text-align: center;
-    position: relative;
-    height: 100%;
-    width: 100%;
+.hidden {
+    opacity: 0;
+    display: none;
 }
 
-.text {
-    font-size: 5rem;
-    font-weight: 700;
-    position: absolute;
+/* Center the Intro Animation */
+#intro {
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: red; /* Red text */
-    text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white; /* White outline */
-    opacity: 0;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex; /* Ensure it’s visible by default */
+    justify-content: center;
+    align-items: center;
 }
 
+#hi, #name, #loading {
+    position: absolute;
+    font-family: 'Orbitron', sans-serif; /* Changed to Orbitron */
+    font-weight: 700; /* Bold weight */
+    font-size: 5em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ff0000; /* Bright red to match the image */
+    text-shadow: 
+        2px 2px 0 #8b0000, /* Darker red shadow for 3D effect */
+        4px 4px 0 #ffffff, /* White outline for contrast */
+        0 0 5px white, 
+        0 0 3px white, 
+        0 0 2px white;
+    opacity: 0;
+    white-space: nowrap;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Animation Keyframes */
 @keyframes slideLeft {
-    from {
-        transform: translate(-100vw, -50%) rotate(-5deg); /* Left, centered */
-        opacity: 0;
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(0deg); /* Middle */
-        opacity: 1;
-    }
+    from { transform: translate(-150%, -50%); opacity: 0; } /* Start fully off-screen to the left */
+    to { transform: translate(-50%, -50%); opacity: 1; }
 }
 
 @keyframes fallDown {
-    from {
-        transform: translate(-50%, -100vh); /* Top */
-        opacity: 0;
-    }
-    to {
-        transform: translate(-50%, -50%); /* Middle */
-        opacity: 1;
-    }
+    from { transform: translate(-50%, -100vh); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
 }
 
 @keyframes slideDown {
-    from {
-        transform: translate(-50%, -50%) scale(1); /* Middle */
-        opacity: 1;
-    }
-    to {
-        transform: translate(-50%, 50vh) scale(1.2); /* Down */
-        opacity: 0;
-    }
+    from { transform: translate(-50%, -50%); opacity: 1; }
+    to { transform: translate(-50%, 100vh); opacity: 0; }
 }
 
 @keyframes slideRight {
-    from {
-        transform: translate(100vw, -50%); /* Right */
-        opacity: 0;
-    }
-    to {
-        transform: translate(-50%, -50%); /* Middle */
-        opacity: 1;
-    }
+    from { transform: translate(150%, -50%); opacity: 0; } /* Start fully off-screen to the right */
+    to { transform: translate(-50%, -50%); opacity: 1; }
 }
 
 @keyframes slideLeftOut {
-    from {
-        transform: translate(-50%, -50%) scale(1); /* Middle */
-        opacity: 1;
-    }
-    to {
-        transform: translate(-100vw, -50%) scale(1.2); /* Left */
-        opacity: 0;
-    }
+    from { transform: translate(-50%, -50%); opacity: 1; }
+    to { transform: translate(-150%, -50%); opacity: 0; }
 }
-
-.content {
-    position: absolute;
+/* Get Started Section */
+#get-started {
+    text-align: center;
+    padding: 20px;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 1s ease;
+    transition: opacity 0.5s ease;
 }
 
-.content h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+#get-started h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3em;
+    margin: 0;
 }
 
-.content p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+#get-started p {
+    font-size: 1.8em;
+    margin: 10px 0;
 }
 
-.content a {
-    color: red;
-    text-decoration: none;
-    font-size: 1.5rem;
+button {
+    background: none;
     border: 2px solid red;
+    color: red;
     padding: 10px 20px;
-    transition: background 0.3s ease;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s;
 }
 
-.content a:hover {
+#pick-path {
     background: red;
-    color: #1a1a1a;
+    color: white;
+}
+
+button:hover {
+    box-shadow: 0 0 10px red;
+}
+
+#timeline div {
+    padding: 20px;
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* Ensure Three.js Canvas is Visible */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }

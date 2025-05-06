@@ -1,0 +1,2071 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #000000;
+    font-family: 'Comic Neue', cursive;
+    color: #D4AF37;
+}
+
+.hidden {
+    opacity: 0;
+    display: none;
+}
+
+/* Center the Intro Animation */
+#intro {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hi, #name, #loading {
+    position: absolute;
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 5em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    text-shadow: 
+        2px 2px 0 #FFFFFF, 
+        4px 4px 0 #A52A2A, 
+        0 0 5px #FFFFFF;
+    opacity: 0;
+    white-space: nowrap;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Animation Keyframes */
+@keyframes slideLeft {
+    from { transform: translate(-150%, -50%); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+@keyframes fallDown {
+    from { transform: translate(-50%, -100vh); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translate(-50%, -50%); opacity: 1; }
+    to { transform: translate(-50%, 100vh); opacity: 0; }
+}
+
+@keyframes slideRight {
+    from { transform: translate(150%, -50%); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+@keyframes slideLeftOut {
+    from { transform: translate(-50%, -50%); opacity: 1; }
+    to { transform: translate(-150%, -50%); opacity: 0; }
+}
+
+/* Get Started Section */
+#get-started {
+    text-align: center;
+    padding: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#get-started h1 {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 3em;
+    margin: 0;
+    color: #D4AF37;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#get-started p {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.8em;
+    margin: 15px 0;
+    color: #D4AF37;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background: #A52A2A;
+    border: none;
+    color: #FFFFFF;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s, border 0.3s, box-shadow 0.3s;
+    font-family: 'Comic Neue', cursive;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#pick-path {
+    background: #A52A2A;
+    color: #FFFFFF;
+}
+
+#see-journey {
+    background: #FFFFFF;
+    color: #A52A2A;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    border: 2px solid #D4AF37;
+    box-shadow: 0 0 10px #D4AF37;
+}
+
+/* Back Button */
+.back-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #A52A2A;
+    color: #FFFFFF;
+    padding: 8px 15px;
+    font-size: 1em;
+    border-radius: 20px;
+}
+
+/* Pick Your Path Menu */
+#menu {
+    text-align: center;
+    padding: 30px;
+    transition: opacity 0.5s ease;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+#menu h2 {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 2.5em;
+    margin: 0 0 20px;
+    color: #D4AF37;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.menu-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.menu-btn {
+    background: #A52A2A;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    border-radius: 30px;
+    transition: all 0.3s, border 0.3s, box-shadow 0.3s;
+    font-family: 'Comic Neue', cursive;
+}
+
+.menu-btn:hover {
+    background: #D4AF37;
+    color: #FFFFFF;
+    transform: scale(1.05);
+    border: 2px solid #D4AF37;
+    box-shadow: 0 0 10px #D4AF37;
+}
+
+/* Timeline Sections (Swiper Carousel) */
+#timeline {
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#timeline div, 
+#summary, 
+#education, 
+#tech-skills, 
+#projects, 
+#work-experience, 
+#leadership-activities {
+    padding: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 800px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.section-content {
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#timeline div:hover, 
+#summary:hover, 
+#education:hover, 
+#tech-skills:hover, 
+#projects:hover, 
+#work-experience:hover, 
+#leadership-activities:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+#timeline h2, 
+#summary h2, 
+#education h2, 
+#tech-skills h2, 
+#projects h2, 
+#work-experience h2, 
+#leadership-activities h2 {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 2em;
+    color: #D4AF37;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#timeline h2 i, 
+#summary h2 i, 
+#education h2 i, 
+#tech-skills h2 i, 
+#projects h2 i, 
+#work-experience h2 i, 
+#leadership-activities h2 i {
+    margin-right: 10px;
+}
+
+#timeline p, 
+#summary p, 
+#education p, 
+#tech-skills p, 
+#projects p, 
+#work-experience p, 
+#leadership-activities p {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.5em;
+    color: #D4AF37;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 15px auto;
+}
+
+#education h3, 
+#projects h3, 
+#work-experience h3, 
+#leadership-activities h3 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.8em;
+    color: #D4AF37;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin: 20px 0 10px;
+}
+
+/* Data Structure Watermark */
+.ds-watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.8em;
+    color: rgba(212, 175, 55, 0.3);
+    text-shadow: none;
+}
+
+/* 3D Data Structure Canvas */
+.ds-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+/* Skills Section */
+.skills-category {
+    margin: 20px 0;
+}
+
+.skills-category h3 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.8em;
+    color: #D4AF37;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.skill-item i {
+    font-size: 2em;
+    color: #D4AF37;
+    margin-bottom: 5px;
+}
+
+.skill-item span {
+    font-size: 0.9em;
+    color: #D4AF37;
+    text-align: center;
+}
+
+.skill-item:hover {
+    transform: scale(1.1);
+}
+
+/* Contact Form */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+#contact input,
+#contact textarea {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border: 2px solid #D4AF37;
+    border-radius: 10px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.2em;
+    color: #D4AF37;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#contact textarea {
+    height: 100px;
+    resize: none;
+}
+
+#contact a {
+    color: #D4AF37;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+#contact a:hover {
+    color: #B8860B;
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #A52A2A;
+    color: #FFFFFF;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s, border 0.3s, box-shadow 0.3s;
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
+    border: 2px solid #D4AF37;
+    box-shadow: 0 0 10px #D4AF37;
+}
+
+/* Swiper Pagination */
+.swiper-pagination-bullet {
+    background: #A52A2A;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    background: #D4AF37;
+    opacity: 1;
+}
+old js
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Script loaded');
+    const hi = document.getElementById('hi');
+    const name = document.getElementById('name');
+    const loading = document.getElementById('loading');
+    const getStarted = document.getElementById('get-started');
+    const seeJourneyBtn = document.getElementById('see-journey');
+    const pickPathBtn = document.getElementById('pick-path');
+    const intro = document.getElementById('intro');
+    const timeline = document.getElementById('timeline');
+    const menu = document.getElementById('menu');
+    const backToTopBtn = document.getElementById('back-to-top');
+    const summary = document.getElementById('summary');
+    const education = document.getElementById('education');
+    const techSkills = document.getElementById('tech-skills');
+    const projects = document.getElementById('projects');
+    const workExperience = document.getElementById('work-experience');
+    const leadershipActivities = document.getElementById('leadership-activities');
+
+    // Navigation History Stack
+    let navHistory = [];
+
+    // Function to Hide All Sections
+    const hideAllSections = () => {
+        getStarted.style.display = 'none';
+        getStarted.style.opacity = 0;
+        timeline.style.display = 'none';
+        timeline.style.opacity = 0;
+        menu.style.display = 'none';
+        menu.style.opacity = 0;
+        summary.style.display = 'none';
+        summary.style.opacity = 0;
+        education.style.display = 'none';
+        education.style.opacity = 0;
+        techSkills.style.display = 'none';
+        techSkills.style.opacity = 0;
+        projects.style.display = 'none';
+        projects.style.opacity = 0;
+        workExperience.style.display = 'none';
+        workExperience.style.opacity = 0;
+        leadershipActivities.style.display = 'none';
+        leadershipActivities.style.opacity = 0;
+        backToTopBtn.style.display = 'none';
+        backToTopBtn.style.opacity = 0;
+    };
+
+    // Function to Show a Section
+    const showSection = (section) => {
+        section.style.display = 'block';
+        setTimeout(() => {
+            section.style.opacity = 1;
+            backToTopBtn.style.display = 'block';
+            setTimeout(() => {
+                backToTopBtn.style.opacity = 1;
+            }, 100);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
+    };
+
+    // Intro Animation
+    setTimeout(() => {
+        console.log('Showing Hi');
+        hi.style.animation = 'slideLeft 2s ease forwards';
+        hi.style.opacity = 1;
+    }, 500);
+
+    setTimeout(() => {
+        console.log('I am Mano falls, kicking Hi');
+        name.style.animation = 'fallDown 1.5s ease forwards';
+        name.style.opacity = 0;
+        setTimeout(() => {
+            hi.style.animation = 'slideDown 0.8s ease forwards';
+            setTimeout(() => {
+                hi.style.display = 'none';
+            }, 800);
+        }, 1000);
+    }, 3000);
+
+    setTimeout(() => {
+        console.log('Loading slides in, kicking I am Mano');
+        loading.style.animation = 'slideRight 1s ease forwards';
+        loading.style.opacity = 0;
+        setTimeout(() => {
+            name.style.animation = 'slideLeftOut 0.8s ease forwards';
+            setTimeout(() => {
+                name.style.display = 'none';
+            }, 800);
+        }, 300);
+    }, 5000);
+
+    setTimeout(() => {
+        console.log('Hiding Loading, showing Get Started');
+        loading.style.animation = 'slideDown 0.8s ease forwards';
+        setTimeout(() => {
+            loading.style.display = 'none';
+            intro.style.display = 'none';
+            getStarted.style.display = 'block';
+            setTimeout(() => {
+                getStarted.style.opacity = 1;
+            }, 100);
+        }, 800);
+    }, 6500);
+
+    // Initialize Swiper for Timeline
+    let swiper;
+    const initSwiper = () => {
+        swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: false,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    };
+
+    // Show Timeline
+    seeJourneyBtn.addEventListener('click', () => {
+        navHistory.push('get-started');
+        hideAllSections();
+        timeline.style.display = 'block';
+        setTimeout(() => {
+            timeline.style.opacity = 1;
+            initSwiper();
+            init3DDataStructures(timeline);
+        }, 100);
+    });
+
+    // Show Pick Your Path Menu
+    pickPathBtn.addEventListener('click', () => {
+        navHistory.push('get-started');
+        hideAllSections();
+        menu.style.display = 'block';
+        setTimeout(() => {
+            menu.style.opacity = 1;
+            init3DDataStructures(menu);
+        }, 100);
+    });
+
+    // Handle Menu Button Clicks
+    const menuButtons = document.querySelectorAll('.menu-btn');
+    menuButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const sectionId = button.getAttribute('data-section');
+            navHistory.push('menu');
+            hideAllSections();
+            const targetSection = document.getElementById(sectionId);
+            showSection(targetSection);
+            init3DDataStructures(targetSection);
+        });
+    });
+
+    // Handle Back Button Clicks
+    const backButtons = document.querySelectorAll('.back-btn');
+    backButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (navHistory.length > 0) {
+                const previousSection = navHistory.pop();
+                hideAllSections();
+                const targetSection = document.getElementById(previousSection);
+                showSection(targetSection);
+                if (previousSection === 'timeline') {
+                    initSwiper();
+                }
+                init3DDataStructures(targetSection);
+            }
+        });
+    });
+
+    // Back to Top Button
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Contact Form Submission (Placeholder)
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for your message! I’ll get back to you soon!');
+        contactForm.reset();
+    });
+
+    // Initialize 3D Data Structures
+    const init3DDataStructures = (container) => {
+        const canvases = container.querySelectorAll('.ds-canvas');
+        canvases.forEach(canvas => {
+            const dsType = canvas.getAttribute('data-ds');
+            let scene, camera, renderer, object;
+
+            // Set up Three.js Scene
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+            // Add Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+            directionalLight.position.set(5, 5, 5).normalize();
+            scene.add(directionalLight);
+
+            // Create 3D Data Structure based on Type
+            switch (dsType) {
+                case 'graph':
+                    // 3D Graph: Nodes and Edges (Simplified)
+                    const graphGroup = new THREE.Group();
+                    const nodeGeometry = new THREE.SphereGeometry(0.3, 32, 32);
+                    const nodeMaterial = new THREE.MeshPhongMaterial({ color: 0x0066cc });
+                    const nodes = [];
+                    for (let i = 0; i < 3; i++) { // Reduced from 5 to 3 nodes
+                        const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
+                        node.position.set(
+                            Math.cos((i / 3) * Math.PI * 2) * 1.5,
+                            Math.sin((i / 3) * Math.PI * 2) * 1.5,
+                            0
+                        );
+                        nodes.push(node);
+                        graphGroup.add(node);
+
+                        // Add outline
+                        const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0x003366, side: THREE.BackSide });
+                        const outlineMesh = new THREE.Mesh(nodeGeometry, outlineMaterial);
+                        outlineMesh.scale.set(1.1, 1.1, 1.1);
+                        node.add(outlineMesh);
+                    }
+                    const edgeMaterial = new THREE.LineBasicMaterial({ color: 0x66b3ff });
+                    for (let i = 0; i < nodes.length; i++) {
+                        for (let j = i + 1; j < nodes.length; j++) {
+                            const points = [
+                                nodes[i].position,
+                                nodes[j].position
+                            ];
+                            const edgeGeometry = new THREE.BufferGeometry().setFromPoints(points);
+                            const edge = new THREE.Line(edgeGeometry, edgeMaterial);
+                            graphGroup.add(edge);
+                        }
+                    }
+                    object = graphGroup;
+                    break;
+
+                case 'tree':
+                    // 3D Tree: Hierarchical Nodes (Simplified)
+                    const treeGroup = new THREE.Group();
+                    const nodeGeo = new THREE.SphereGeometry(0.3, 32, 32);
+                    const nodeMat = new THREE.MeshPhongMaterial({ color: 0x0066cc });
+                    const root = new THREE.Mesh(nodeGeo, nodeMat);
+                    root.position.set(0, 1.5, 0);
+                    treeGroup.add(root);
+
+                    // Add outline to root
+                    const outlineMaterialRoot = new THREE.MeshBasicMaterial({ color: 0x003366, side: THREE.BackSide });
+                    const outlineMeshRoot = new THREE.Mesh(nodeGeo, outlineMaterialRoot);
+                    outlineMeshRoot.scale.set(1.1, 1.1, 1.1);
+                    root.add(outlineMeshRoot);
+
+                    const children = [];
+                    for (let i = 0; i < 2; i++) { // Reduced from 3 to 2 children
+                        const child = new THREE.Mesh(nodeGeo, nodeMat);
+                        child.position.set((i - 0.5) * 1.5, 0, 0);
+                        children.push(child);
+                        treeGroup.add(child);
+
+                        // Add outline to child
+                        const outlineMaterialChild = new THREE.MeshBasicMaterial({ color: 0x003366, side: THREE.BackSide });
+                        const outlineMeshChild = new THREE.Mesh(nodeGeo, outlineMaterialChild);
+                        outlineMeshChild.scale.set(1.1, 1.1, 1.1);
+                        child.add(outlineMeshChild);
+
+                        const edgePoints = [
+                            root.position,
+                            child.position
+                        ];
+                        const edgeGeo = new THREE.BufferGeometry().setFromPoints(edgePoints);
+                        const edgeMat = new THREE.LineBasicMaterial({ color: 0x66b3ff });
+                        const edge = new THREE.Line(edgeGeo, edgeMat);
+                        treeGroup.add(edge);
+                    }
+                    object = treeGroup;
+                    break;
+
+                case 'stack':
+                    // 3D Stack: Stacked Cubes (Smaller Cubes)
+                    const stackGroup = new THREE.Group();
+                    for (let y = -1.5; y <= 1.5; y += 1.2) {
+                        const geometry = new THREE.BoxGeometry(0.6, 0.6, 0.6);
+                        const material = new THREE.MeshPhongMaterial({ color: 0x0066cc });
+                        const cube = new THREE.Mesh(geometry, material);
+                        cube.position.set(0, y, 0);
+                        stackGroup.add(cube);
+
+                        // Add outline
+                        const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0x003366, side: THREE.BackSide });
+                        const outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
+                        outlineMesh.scale.set(1.1, 1.1, 1.1);
+                        cube.add(outlineMesh);
+                    }
+                    object = stackGroup;
+                    break;
+
+                case 'queue':
+                    // 3D Queue: Line of Cubes (Smaller Cubes)
+                    const queueGroup = new THREE.Group();
+                    for (let x = -2; x <= 2; x += 1.2) {
+                        const geometry = new THREE.BoxGeometry(0.6, 0.6, 0.6);
+                        const material = new THREE.MeshPhongMaterial({ color: 0x0066cc });
+                        const cube = new THREE.Mesh(geometry, material);
+                        cube.position.set(x, 0, 0);
+                        queueGroup.add(cube);
+
+                        // Add outline
+                        const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0x003366, side: THREE.BackSide });
+                        const outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
+                        outlineMesh.scale.set(1.1, 1.1, 1.1);
+                        cube.add(outlineMesh);
+                    }
+                    object = queueGroup;
+                    break;
+
+                case 'linked-list':
+                    // 3D Linked List: Chain of Cubes (Simplified)
+                    const linkedListGroup = new THREE.Group();
+                    const nodesLL = [];
+                    for (let x = -2; x <= 2; x += 1.5) {
+                        const geometry = new THREE.BoxGeometry(0.6, 0.6, 0.6);
+                        const material = new THREE.MeshPhongMaterial({ color: 0x0066cc });
+                        const node = new THREE.Mesh(geometry, material);
+                        node.position.set(x, 0, 0);
+                        nodesLL.push(node);
+                        linkedListGroup.add(node);
+
+                        // Add outline
+                        const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0x003366, side: THREE.BackSide });
+                        const outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
+                        outlineMesh.scale.set(1.1, 1.1, 1.1);
+                        node.add(outlineMesh);
+                    }
+                    const edgeMatLL = new THREE.LineBasicMaterial({ color: 0x66b3ff });
+                    for (let i = 0; i < nodesLL.length - 1; i++) {
+                        const points = [
+                            nodesLL[i].position,
+                            nodesLL[i + 1].position
+                        ];
+                        const edgeGeo = new THREE.BufferGeometry().setFromPoints(points);
+                        const edge = new THREE.Line(edgeGeo, edgeMatLL);
+                        linkedListGroup.add(edge);
+                    }
+                    object = linkedListGroup;
+                    break;
+
+                case 'cluster':
+                    // 3D Cluster: Randomly Positioned Nodes (Simplified)
+                    const clusterGroup = new THREE.Group();
+                    for (let i = 0; i < 5; i++) {
+                        const geometry = new THREE.SphereGeometry(0.3, 32, 32);
+                        const material = new THREE.MeshPhongMaterial({ color: 0x0066cc });
+                        const node = new THREE.Mesh(geometry, material);
+                        node.position.set(
+                            (Math.random() - 0.5) * 3,
+                            (Math.random() - 0.5) * 3,
+                            (Math.random() - 0.5) * 3
+                        );
+                        clusterGroup.add(node);
+
+                        // Add outline
+                        const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0x003366, side: THREE.BackSide });
+                        const outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
+                        outlineMesh.scale.set(1.1, 1.1, 1.1);
+                        node.add(outlineMesh);
+                    }
+                    object = clusterGroup;
+                    break;
+
+                case 'network':
+                    // 3D Network: Nodes with Random Connections (Simplified)
+                    const networkGroup = new THREE.Group();
+                    const networkNodes = [];
+                    for (let i = 0; i < 4; i++) {
+                        const geometry = new THREE.SphereGeometry(0.3, 32, 32);
+                        const material = new THREE.MeshPhongMaterial({ color: 0x0066cc });
+                        const node = new THREE.Mesh(geometry, material);
+                        node.position.set(
+                            (Math.random() - 0.5) * 4,
+                            (Math.random() - 0.5) * 4,
+                            (Math.random() - 0.5) * 4
+                        );
+                        networkNodes.push(node);
+                        networkGroup.add(node);
+
+                        // Add outline
+                        const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0x003366, side: THREE.BackSide });
+                        const outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
+                        outlineMesh.scale.set(1.1, 1.1, 1.1);
+                        node.add(outlineMesh);
+                    }
+                    const edgeMatNet = new THREE.LineBasicMaterial({ color: 0x66b3ff });
+                    for (let i = 0; i < networkNodes.length; i++) {
+                        for (let j = i + 1; j < networkNodes.length; j++) {
+                            if (Math.random() > 0.5) {
+                                const points = [
+                                    networkNodes[i].position,
+                                    networkNodes[j].position
+                                ];
+                                const edgeGeo = new THREE.BufferGeometry().setFromPoints(points);
+                                const edge = new THREE.Line(edgeGeo, edgeMatNet);
+                                networkGroup.add(edge);
+                            }
+                        }
+                    }
+                    object = networkGroup;
+                    break;
+            }
+
+            scene.add(object);
+            camera.position.z = 5;
+
+            // Animation Loop (Slower Rotation)
+            const animate = () => {
+                requestAnimationFrame(animate);
+                object.rotation.x += 0.005;
+                object.rotation.y += 0.005;
+                renderer.render(scene, camera);
+            };
+            animate();
+
+            // Handle Window Resize
+            window.addEventListener('resize', () => {
+                camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            });
+        });
+    };
+});
+
+
+<!-- script.js (updated with new colors for Three.js) -->
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Script loaded');
+    const hi = document.getElementById('hi');
+    const name = document.getElementById('name');
+    const loading = document.getElementById('loading');
+    const getStarted = document.getElementById('get-started');
+    const seeJourneyBtn = document.getElementById('see-journey');
+    const pickPathBtn = document.getElementById('pick-path');
+    const intro = document.getElementById('intro');
+    const timeline = document.getElementById('timeline');
+    const menu = document.getElementById('menu');
+    const backToTopBtn = document.getElementById('back-to-top');
+    const summary = document.getElementById('summary');
+    const education = document.getElementById('education');
+    const techSkills = document.getElementById('tech-skills');
+    const projects = document.getElementById('projects');
+    const workExperience = document.getElementById('work-experience');
+    const leadershipActivities = document.getElementById('leadership-activities');
+
+    // Navigation History Stack
+    let navHistory = [];
+
+    // Function to Hide All Sections
+    const hideAllSections = () => {
+        getStarted.style.display = 'none';
+        getStarted.style.opacity = 0;
+        timeline.style.display = 'none';
+        timeline.style.opacity = 0;
+        menu.style.display = 'none';
+        menu.style.opacity = 0;
+        summary.style.display = 'none';
+        summary.style.opacity = 0;
+        education.style.display = 'none';
+        education.style.opacity = 0;
+        techSkills.style.display = 'none';
+        techSkills.style.opacity = 0;
+        projects.style.display = 'none';
+        projects.style.opacity = 0;
+        workExperience.style.display = 'none';
+        workExperience.style.opacity = 0;
+        leadershipActivities.style.display = 'none';
+        leadershipActivities.style.opacity = 0;
+        backToTopBtn.style.display = 'none';
+        backToTopBtn.style.opacity = 0;
+    };
+
+    // Function to Show a Section
+    const showSection = (section) => {
+        section.style.display = 'block';
+        setTimeout(() => {
+            section.style.opacity = 1;
+            backToTopBtn.style.display = 'block';
+            setTimeout(() => {
+                backToTopBtn.style.opacity = 1;
+            }, 100);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
+    };
+
+    // Intro Animation
+    setTimeout(() => {
+        console.log('Showing Hi');
+        hi.style.animation = 'slideLeft 2s ease forwards';
+        hi.style.opacity = 1;
+    }, 500);
+
+    setTimeout(() => {
+        console.log('I am Mano falls, kicking Hi');
+        name.style.animation = 'fallDown 1.5s ease forwards';
+        name.style.opacity = 0;
+        setTimeout(() => {
+            hi.style.animation = 'slideDown 0.8s ease forwards';
+            setTimeout(() => {
+                hi.style.display = 'none';
+            }, 800);
+        }, 1000);
+    }, 3000);
+
+    setTimeout(() => {
+        console.log('Loading slides in, kicking I am Mano');
+        loading.style.animation = 'slideRight 1s ease forwards';
+        loading.style.opacity = 0;
+        setTimeout(() => {
+            name.style.animation = 'slideLeftOut 0.8s ease forwards';
+            setTimeout(() => {
+                name.style.display = 'none';
+            }, 800);
+        }, 300);
+    }, 5000);
+
+    setTimeout(() => {
+        console.log('Hiding Loading, showing Get Started');
+        loading.style.animation = 'slideDown 0.8s ease forwards';
+        setTimeout(() => {
+            loading.style.display = 'none';
+            intro.style.display = 'none';
+            getStarted.style.display = 'block';
+            setTimeout(() => {
+                getStarted.style.opacity = 1;
+            }, 100);
+        }, 800);
+    }, 6500);
+
+    // Initialize Swiper for Timeline
+    let swiper;
+    const initSwiper = () => {
+        swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: false,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    };
+
+    // Show Timeline
+    seeJourneyBtn.addEventListener('click', () => {
+        navHistory.push('get-started');
+        hideAllSections();
+        timeline.style.display = 'block';
+        setTimeout(() => {
+            timeline.style.opacity = 1;
+            initSwiper();
+            init3DDataStructures(timeline);
+        }, 100);
+    });
+
+    // Show Pick Your Path Menu
+    pickPathBtn.addEventListener('click', () => {
+        navHistory.push('get-started');
+        hideAllSections();
+        menu.style.display = 'block';
+        setTimeout(() => {
+            menu.style.opacity = 1;
+            init3DDataStructures(menu);
+        }, 100);
+    });
+
+    // Handle Menu Button Clicks
+    const menuButtons = document.querySelectorAll('.menu-btn');
+    menuButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const sectionId = button.getAttribute('data-section');
+            navHistory.push('menu');
+            hideAllSections();
+            const targetSection = document.getElementById(sectionId);
+            showSection(targetSection);
+            init3DDataStructures(targetSection);
+        });
+    });
+
+    // Handle Back Button Clicks
+    const backButtons = document.querySelectorAll('.back-btn');
+    backButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (navHistory.length > 0) {
+                const previousSection = navHistory.pop();
+                hideAllSections();
+                const targetSection = document.getElementById(previousSection);
+                showSection(targetSection);
+                if (previousSection === 'timeline') {
+                    initSwiper();
+                }
+                init3DDataStructures(targetSection);
+            }
+        });
+    });
+
+    // Back to Top Button
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Contact Form Submission (Placeholder)
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for your message! I’ll get back to you soon!');
+        contactForm.reset();
+    });
+
+    // Initialize 3D Data Structures
+    const init3DDataStructures = (container) => {
+        const canvases = container.querySelectorAll('.ds-canvas');
+        canvases.forEach(canvas => {
+            const dsType = canvas.getAttribute('data-ds');
+            let scene, camera, renderer, object;
+
+            // Set up Three.js Scene
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+            // Add Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+            directionalLight.position.set(5, 5, 5).normalize();
+            scene.add(directionalLight);
+
+            // Create 3D Data Structure based on Type
+            switch (dsType) {
+                case 'graph':
+                    // 3D Graph: Nodes and Edges (Simplified)
+                    const graphGroup = new THREE.Group();
+                    const nodeGeometry = new THREE.SphereGeometry(0.3, 32, 32);
+                    const nodeMaterial = new THREE.MeshPhongMaterial({ color: 0xD4AF37 });
+                    const nodes = [];
+                    for (let i = 0; i < 3; i++) {
+                        const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
+                        node.position.set(
+                            Math.cos((i / 3) * Math.PI * 2) * 1.5,
+                            Math.sin((i / 3) * Math.PI * 2) * 1.5,
+                            0
+                        );
+                        nodes.push(node);
+                        graphGroup.add(node);
+
+                        // Add outline
+                        const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0xB8860B, side: THREE.BackSide });
+                        const outlineMesh = new THREE.Mesh(nodeGeometry, outlineMaterial);
+                        outlineMesh.scale.set(1.1, 1.1, 1.1);
+                        node.add(outlineMesh);
+                    }
+                    const edgeMaterial = new THREE.LineBasicMaterial({ color: 0xE8C872 });
+                    for (let i = 0; i < nodes.length; i++) {
+                        for (let j = i + 1; j < nodes.length; j++) {
+                            const points = [
+                                nodes[i].position,
+                                nodes[j].position
+                            ];
+                            const edgeGeometry = new THREE.BufferGeometry().setFromPoints(points);
+                            const edge = new THREE.Line(edgeGeometry, edgeMaterial);
+                            graphGroup.add(edge);
+                        }
+                    }
+                    object = graphGroup;
+                    break;
+
+                case 'tree':
+                    // 3D Tree: Hierarchical Nodes (Simplified)
+                    const treeGroup = new THREE.Group();
+                    const nodeGeo = new THREE.SphereGeometry(0.3, 32, 32);
+                    const nodeMat = new THREE.MeshPhongMaterial({ color: 0xD4AF37 });
+                    const root = new THREE.Mesh(nodeGeo, nodeMat);
+                    root.position.set(0, 1.5, 0);
+                    treeGroup.add(root);
+
+                    // Add outline to root
+                    const outlineMaterialRoot = new THREE.MeshBasicMaterial({ color: 0xB8860B, side: THREE.BackSide });
+                    const outlineMeshRoot = new THREE.Mesh(nodeGeo, outlineMaterialRoot);
+                    outlineMeshRoot.scale.set(1.1, 1.1, 1.1);
+                    root.add(outlineMeshRoot);
+
+                    const children = [];
+                    for (let i = 0; i < 2; i++) {
+                        const child = new THREE.Mesh(nodeGeo, nodeMat);
+                        child.position.set((i - 0.5) * 1.5, 0, 0);
+                        children.push(child);
+                        treeGroup.add(child);
+
+                        // Add outline to child
+                        const outlineMaterialChild = new THREE.MeshBasicMaterial({ color: 0xB8860B, side: THREE.BackSide });
+                        const outlineMeshChild = new THREE.Mesh(nodeGeo, outlineMaterialChild);
+                        outlineMeshChild.scale.set(1.1, 1.1, 1.1);
+                        child.add(outlineMeshChild);
+
+                        const edgePoints = [
+                            root.position,
+                            child.position
+                        ];
+                        const edgeGeo = new THREE.BufferGeometry().setFromPoints(edgePoints);
+                        const edgeMat = new THREE.LineBasicMaterial({ color: 0xE8C872 });
+                        const edge = new THREE.Line(edgeGeo, edgeMat);
+                        treeGroup.add(edge);
+                    }
+                    object = treeGroup;
+                    break;
+
+                case 'stack':
+                    // 3D Stack: Stacked Cubes (Smaller Cubes)
+                    const stackGroup = new THREE.Group();
+                    for (let y = -1.5; y <= 1.5; y += 1.2) {
+                        const geometry = new THREE.BoxGeometry(0.6, 0.6, 0.6);
+                        const material = new THREE.MeshPhongMaterial({ color: 0xD4AF37 });
+                        const cube = new THREE.Mesh(geometry, material);
+                        cube.position.set(0, y, 0);
+                        stackGroup.add(cube);
+
+                        // Add outline
+                        const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0xB8860B, side: THREE.BackSide });
+                        const outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
+                        outlineMesh.scale.set(1.1, 1.1, 1.1);
+                        cube.add(outlineMesh);
+                    }
+                    object = stackGroup;
+                    break;
+
+                case 'queue':
+                    // 3D Queue: Line of Cubes (Smaller Cubes)
+                    const queueGroup = new THREE.Group();
+                    for (let x = -2; x <= 2; x += 1.2) {
+                        const geometry = new THREE.BoxGeometry(0.6, 0.6, 0.6);
+                        const material = new THREE.MeshPhongMaterial({ color: 0xD4AF37 });
+                        const cube = new THREE.Mesh(geometry, material);
+                        cube.position.set(x, 0, 0);
+                        queueGroup.add(cube);
+
+                        // Add outline
+                        const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0xB8860B, side: THREE.BackSide });
+                        const outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
+                        outlineMesh.scale.set(1.1, 1.1, 1.1);
+                        cube.add(outlineMesh);
+                    }
+                    object = queueGroup;
+                    break;
+
+                case 'linked-list':
+                    // 3D Linked List: Chain of Cubes (Simplified)
+                    const linkedListGroup = new THREE.Group();
+                    const nodesLL = [];
+                    for (let x = -2; x <= 2; x += 1.5) {
+                        const geometry = new THREE.BoxGeometry(0.6, 0.6, 0.6);
+                        const material = new THREE.MeshPhongMaterial({ color: 0xD4AF37 });
+                        const node = new THREE.Mesh(geometry, material);
+                        node.position.set(x, 0, 0);
+                        nodesLL.push(node);
+                        linkedListGroup.add(node);
+
+                        // Add outline
+                        const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0xB8860B, side: THREE.BackSide });
+                        const outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
+                        outlineMesh.scale.set(1.1, 1.1, 1.1);
+                        node.add(outlineMesh);
+                    }
+                    const edgeMatLL = new THREE.LineBasicMaterial({ color: 0xE8C872 });
+                    for (let i = 0; i < nodesLL.length - 1; i++) {
+                        const points = [
+                            nodesLL[i].position,
+                            nodesLL[i + 1].position
+                        ];
+                        const edgeGeo = new THREE.BufferGeometry().setFromPoints(points);
+                        const edge = new THREE.Line(edgeGeo, edgeMatLL);
+                        linkedListGroup.add(edge);
+                    }
+                    object = linkedListGroup;
+                    break;
+
+                case 'cluster':
+                    // 3D Cluster: Randomly Positioned Nodes (Simplified)
+                    const clusterGroup = new THREE.Group();
+                    for (let i = 0; i < 5; i++) {
+                        const geometry = new THREE.SphereGeometry(0.3, 32, 32);
+                        const material = new THREE.MeshPhongMaterial({ color: 0xD4AF37 });
+                        const node = new THREE.Mesh(geometry, material);
+                        node.position.set(
+                            (Math.random() - 0.5) * 3,
+                            (Math.random() - 0.5) * 3,
+                            (Math.random() - 0.5) * 3
+                        );
+                        clusterGroup.add(node);
+
+                        // Add outline
+                        const outlineMaterial = new THREE.MeshBasicMaterial({ color: 0xB8860B, side: THREE.BackSide });
+                        const outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
+                        outlineMesh.scale.set(1.1, 1.1, 1.1);
+
+
+
+
+OLD CS
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffe6f0, #ffd1e3);
+    font-family: 'Comic Neue', cursive;
+    color: #ff6f61;
+}
+
+.hidden {
+    opacity: 0;
+    display: none;
+}
+
+/* Center the Intro Animation */
+#intro {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hi, #name, #loading {
+    position: absolute;
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 5em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ff6f61;
+    text-shadow: 
+        2px 2px 0 #ffffff, 
+        4px 4px 0 #ff9999, 
+        0 0 5px #ffffff;
+    opacity: 0;
+    white-space: nowrap;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Animation Keyframes */
+@keyframes slideLeft {
+    from { transform: translate(-150%, -50%); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+@keyframes fallDown {
+    from { transform: translate(-50%, -100vh); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translate(-50%, -50%); opacity: 1; }
+    to { transform: translate(-50%, 100vh); opacity: 0; }
+}
+
+@keyframes slideRight {
+    from { transform: translate(150%, -50%); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+@keyframes slideLeftOut {
+    from { transform: translate(-50%, -50%); opacity: 1; }
+    to { transform: translate(-150%, -50%); opacity: 0; }
+}
+
+/* Get Started Section */
+#get-started {
+    text-align: center;
+    padding: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#get-started h1 {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 3em;
+    margin: 0;
+    color: #ff6f61;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#get-started p {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.8em;
+    margin: 15px 0;
+    color: #ff6f61;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background: #ff9999;
+    border: none;
+    color: #ffffff;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s;
+    font-family: 'Comic Neue', cursive;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#pick-path {
+    background: #ff9999;
+    color: #ffffff;
+}
+
+#see-journey {
+    background: #ffffff;
+    color: #ff6f61;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Back Button */
+.back-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ff9999;
+    color: #ffffff;
+    padding: 8px 15px;
+    font-size: 1em;
+    border-radius: 20px;
+}
+
+/* Pick Your Path Menu */
+#menu {
+    text-align: center;
+    padding: 30px;
+    transition: opacity 0.5s ease;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+#menu h2 {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 2.5em;
+    margin: 0 0 20px;
+    color: #ff6f61;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.menu-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.menu-btn {
+    background: #ffffff;
+    color: #ff6f61;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    border-radius: 30px;
+    transition: all 0.3s;
+    font-family: 'Comic Neue', cursive;
+}
+
+.menu-btn:hover {
+    background: #ff9999;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* Timeline Sections (Swiper Carousel) */
+#timeline {
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#timeline div, 
+#summary, 
+#education, 
+#tech-skills, 
+#projects, 
+#work-experience, 
+#leadership-activities {
+    padding: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 800px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.section-content {
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#timeline div:hover, 
+#summary:hover, 
+#education:hover, 
+#tech-skills:hover, 
+#projects:hover, 
+#work-experience:hover, 
+#leadership-activities:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+#timeline h2, 
+#summary h2, 
+#education h2, 
+#tech-skills h2, 
+#projects h2, 
+#work-experience h2, 
+#leadership-activities h2 {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 2em;
+    color: #ff6f61;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#timeline h2 i, 
+#summary h2 i, 
+#education h2 i, 
+#tech-skills h2 i, 
+#projects h2 i, 
+#work-experience h2 i, 
+#leadership-activities h2 i {
+    margin-right: 10px;
+}
+
+#timeline p, 
+#summary p, 
+#education p, 
+#tech-skills p, 
+#projects p, 
+#work-experience p, 
+#leadership-activities p {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.5em;
+    color: #ff6f61;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 15px auto;
+}
+
+#education h3, 
+#projects h3, 
+#work-experience h3, 
+#leadership-activities h3 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.8em;
+    color: #ff6f61;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin: 20px 0 10px;
+}
+
+/* Data Structure Watermark */
+.ds-watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 0.8em;
+    color: rgba(255, 111, 97, 0.3);
+    text-shadow: none;
+}
+
+/* 3D Data Structure Canvas */
+.ds-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5; /* Increased from 0.3 for better visibility */
+}
+
+/* Skills Section */
+.skills-category {
+    margin: 20px 0;
+}
+
+.skills-category h3 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.8em;
+    color: #ff6f61;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.skill-item i {
+    font-size: 2em;
+    color: #ff6f61;
+    margin-bottom: 5px;
+}
+
+.skill-item span {
+    font-size: 0.9em;
+    color: #ff6f61;
+    text-align: center;
+}
+
+.skill-item:hover {
+    transform: scale(1.1);
+}
+
+/* Contact Form */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+#contact input,
+#contact textarea {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border: 2px solid #ff9999;
+    border-radius: 10px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.2em;
+    color: #ff6f61;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#contact textarea {
+    height: 100px;
+    resize: none;
+}
+
+#contact a {
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ff9999;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Swiper Pagination */
+.swiper-pagination-bullet {
+    background: #ff9999;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    background: #ff6f61;
+    opacity: 1;
+} 
+
+
+
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mano Tadikonda - Portfolio</title>
+    <!-- Load Comic Neue Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Load Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Load Swiper.js for Swipeable Pages -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Load Three.js for 3D Data Structures -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animation Section -->
+    <div id="intro">
+        <span id="hi">Hi</span>
+        <span id="name">I am Mano</span>
+        <span id="loading">Loading</span>
+    </div>
+
+    <!-- Get Started Section -->
+    <div id="get-started" class="hidden">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Grad Student in Information Systems | Data & AR Enthusiast</p>
+        <button id="pick-path">Pick Your Path</button>
+        <button id="see-journey">See My Journey</button>
+    </div>
+
+    <!-- Timeline Sections (See My Journey) -->
+    <div id="timeline" class="hidden">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div id="education-masters">
+                        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                        <h2><i class="fas fa-university"></i> Masters in Information Systems (Sep 2024 - May 2026)</h2>
+                        <p>I’m currently pursuing a Masters in Information Systems at Northeastern University, starting in September 2024, and it’s been an incredible opportunity to dive deeper into tech. My courses—App Engineering and Development, Data Science with Python, Database Design, and Programming & Algorithms—are helping me build advanced skills in software development and data science. I’m getting hands-on with Python libraries like Pandas and Scikit-learn for data analysis, learning to design efficient databases with both SQL and NoSQL systems, and exploring how to build modern applications. Working on projects with classmates from around the world has also taught me how to collaborate in diverse teams, which has been great for refining my technical and interpersonal skills as I prepare for bigger roles in tech.</p>
+                        <div class="ds-watermark">3D Network: Interconnected Learning</div>
+                        <canvas class="ds-canvas" data-ds="network"></canvas>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="projects-masters">
+                        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                        <h2><i class="fas fa-trophy"></i> Hackathon Projects</h2>
+                        <p>At my first hackathon at Northeastern, I worked on a Legal Document Analyzer, a tool to extract key details from legal texts using natural language processing. I used SpaCy for named entity recognition to pull out things like dates, names, and clauses, and integrated a BERT model to classify documents—like contracts or wills—with 92% accuracy. I built the backend with FastAPI to process the data quickly and created a React frontend to show the results in a clean, easy-to-read table. My team took 2nd place, which was a proud moment and showed I could deliver solid solutions under tight deadlines. My second project was the AI Stylist app, an AI-powered outfit recommendation system. I set up a client-server setup with a React.js frontend using Vite for a fast, smooth UI, and a FastAPI backend to handle the heavy lifting. Using OpenAI’s CLIP model, I made the system analyze clothing details—like type, color, and material—from user-uploaded images. I added real-time weather data through APIs to make weather-appropriate suggestions and let users pick their style preferences, like casual or formal, so the AI could recommend outfits that fit their vibe. The system’s design is modular, supporting different AI models like Hugging Face and Ollama, which makes it easy to scale up in the future.</p>
+                        <div class="ds-watermark">3D Graph: Interconnected Projects</div>
+                        <canvas class="ds-canvas" data-ds="graph"></canvas>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="leadership-spring">
+                        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                        <h2><i class="fas fa-leaf"></i> Experiential Spring Break (Mar 2025)</h2>
+                        <p>In March 2025, I was a group leader for Experiential Spring Break at Northeastern University, a week-long program that mixed tech learning with professional growth. On the first day, I visited OneSixOne Ventures to learn about venture capital, getting a sense of investment strategies and what it takes to break into that field. The next day, I took a private course at AWS Skills Center on Demystifying Generative AI, where I explored the differences between AI and ML and how they’re used in the real world. On day three, I toured T-Mobile’s HQ, joining a panel discussion and networking session that showed me how data drives telecom innovation. The fourth day was a visit to Microsoft’s campus, hosted by an NU-Seattle alumna, where I learned about their AI work and got to check out the Xbox room. The week wrapped up with a Prompt Engineering session, which helped me get better at crafting AI interactions. I also made some great connections while exploring Seattle spots like the Space Needle, Pike Place Market, and Bellevue Downtown Park, blending tech insights with fun cultural experiences.</p>
+                        <div class="ds-watermark">3D Tree: Hierarchical Experiences</div>
+                        <canvas class="ds-canvas" data-ds="tree"></canvas>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="work-fulltime">
+                        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                        <h2><i class="fas fa-laptop-code"></i> Cognizant Full-Time - AWS Data Engineer (Dec 2022 - Dec 2023)</h2>
+                        <p>In December 2022, I joined Cognizant full-time as an AWS Data Engineer, working on a historical data migration project for Blue Cross Blue Shield Association, which was a huge learning experience. My role involved building and managing data pipelines to migrate over 50 terabytes of sensitive health and personal data, using AWS Glue for ETL processes to extract, transform, and load the data efficiently. I stored the data securely in Amazon S3, set up Amazon Redshift for data warehousing to support analytics, and used AWS Lake Formation to manage data access and governance across the project. Since the data was highly sensitive, I implemented encryption with AWS KMS and set up fine-grained access controls using IAM roles to meet strict healthcare compliance standards. Our team followed agile practices, using Jira to track tasks and holding sprint planning sessions every two weeks to prioritize deliverables and address blockers. I also leveraged AWS Step Functions to orchestrate complex workflows, ensuring the pipelines ran smoothly, and used Amazon CloudWatch to monitor job performance, setting up alarms for any failures. By optimizing the Glue jobs with parallel processing and refining Redshift schemas, I helped reduce migration time by 15%. Working with a seasoned team, I deepened my understanding of big data technologies, cloud architecture, and secure data management, learning how to handle large-scale projects with precision and care.</p>
+                        <div class="ds-watermark">3D Stack: Layered Responsibilities</div>
+                        <canvas class="ds-canvas" data-ds="stack"></canvas>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="work-internship">
+                        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                        <h2><i class="fas fa-briefcase"></i> Cognizant Internship - Azure Project (Feb 2022 - Nov 2022)</h2>
+                        <p>I started my internship at Cognizant in February 2022 while finishing up my final year at Osmania University, and it was my first real taste of working in tech. I joined a team migrating an on-premises inventory management app to Azure, where I worked with Azure App Services to deploy the application and Azure Blob Storage to handle product images and transaction logs. One of my tasks was building a monitoring tool with Azure Monitor and Log Analytics, setting up alerts for when CPU or memory usage got too high so we could keep the system stable. On weekends, we had assessments where I created a cost optimization dashboard using Azure Cost Management APIs, which helped the team spot underused resources and cut costs by 10%. I was thrilled to be named one of the Top 10 GenZ Interns, which gave me the chance to present my work to senior leaders. The internship really sharpened my skills in cloud computing, Azure tools, and solving problems under pressure.</p>
+                        <div class="ds-watermark">3D Queue: Sequential Tasks</div>
+                        <canvas class="ds-canvas" data-ds="queue"></canvas>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="education-bachelors">
+                        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                        <h2><i class="fas fa-graduation-cap"></i> Bachelors in Information Technology (2018-2022)</h2>
+                        <p>I graduated with a Bachelors in Information Technology from Osmania University in Hyderabad back in June 2022, and it was such a formative experience for me. My courses—like Algorithms, Operating Systems, Machine Learning, Statistical Modeling, Distributed Systems, Computer Networks, and Database Systems—gave me a solid grounding in the tech world. I got hands-on with programming in C, C++, Java, and Python, which I used in projects like building a campus navigation system with Dijkstra’s algorithm in C++ to find the shortest paths between buildings. I also created a library management system with a relational database in SQL, figuring out how to structure tables and queries to keep everything running smoothly. Working on a group project where we built a file-sharing app using socket programming in Java taught me how to collaborate effectively, divvy up tasks, and explain technical ideas to my teammates and professors, which really boosted my teamwork and communication skills.</p>
+                        <div class="ds-watermark">3D Tree: Foundational Knowledge</div>
+                        <canvas class="ds-canvas" data-ds="tree"></canvas>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="projects-bachelors">
+                        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                        <h2><i class="fas fa-code"></i> University Project - Age and Gender Analysis Using Machine Learning</h2>
+                        <p>During my time at Osmania University, I worked on an Age and Gender Analysis project using Machine Learning, which really got me excited about data science. I built a convolutional neural network (CNN) with Python and TensorFlow to predict someone’s age and gender from facial images, training it on the UTKFace dataset with 20,000 images. I had to preprocess the data carefully—resizing images, normalizing them, and using data augmentation to handle things like poor lighting or uneven age groups in the dataset. After tweaking the model’s learning rate and batch size, I got it to an accuracy of 87%, which felt like a big win. I presented the project at our university’s tech fest, and the faculty appreciated how it could be used for demographic analysis in real-world scenarios. This project helped me get better at building ML models, cleaning up data, and talking about my work in a clear, technical way.</p>
+                        <div class="ds-watermark">3D Linked List: Sequential Project Steps</div>
+                        <canvas class="ds-canvas" data-ds="linked-list"></canvas>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="leadership-woofaid">
+                        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                        <h2><i class="fas fa-paw"></i> WoofAid (Dec 2020 - Dec 2022)</h2>
+                        <p>In December 2020, I co-founded WoofAid with a few friends to help stray dogs and cats in Hyderabad during the Covid-19 pandemic, as many people wrongly believed these animals were spreading the virus. We organized food drives and set up temporary shelters, managing to care for over 200 animals in our first year. I took the lead on coordinating a team of 10 volunteers, handling logistics, managing donations, and spreading the word through social media campaigns that reached over 5,000 people. After 18 months, we got the local government on board, and six months later, we handed over the operations to them so I could focus on starting my career. Our work got some attention at Osmania University, and I was invited for a radio interview by a student club, which was a great chance to share our story. Leading WoofAid taught me how to manage projects, work with a team, and speak confidently about something I cared about. [Placeholder for pictures and video]</p>
+                        <div class="ds-watermark">3D Cluster: Community Efforts</div>
+                        <canvas class="ds-canvas" data-ds="cluster"></canvas>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="skills">
+                        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                        <h2><i class="fas fa-tools"></i> Skills</h2>
+                        <div class="skills-category">
+                            <h3>Programming Languages</h3>
+                            <div class="skills-grid">
+                                <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+                                <div class="skill-item"><i class="fab fa-java"></i> Java</div>
+                                <div class="skill-item"><i class="fas fa-code"></i> C</div>
+                                <div class="skill-item"><i class="fas fa-code"></i> C++</div>
+                                <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <h3>Front-End Development</h3>
+                            <div class="skills-grid">
+                                <div class="skill-item"><i class="fab fa-react"></i> React.js</div>
+                                <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+                                <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+                                <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+                                <div class="skill-item"><i class="fas fa-code"></i> Vite</div>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <h3>Back-End Development</h3>
+                            <div class="skills-grid">
+                                <div class="skill-item"><i class="fas fa-server"></i> FastAPI</div>
+                                <div class="skill-item"><i class="fab fa-node-js"></i> Node.js</div>
+                                <div class="skill-item"><i class="fas fa-server"></i> Express</div>
+                                <div class="skill-item"><i class="fas fa-link"></i> RESTful APIs</div>
+                                <div class="skill-item"><i class="fas fa-database"></i> MySQL</div>
+                                <div class="skill-item"><i class="fas fa-database"></i> PostgreSQL</div>
+                                <div class="skill-item"><i class="fas fa-database"></i> MongoDB</div>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <h3>Tools & Technologies</h3>
+                            <div class="skills-grid">
+                                <div class="skill-item"><i class="fab fa-aws"></i> AWS Lambda</div>
+                                <div class="skill-item"><i class="fab fa-aws"></i> AWS S3</div>
+                                <div class="skill-item"><i class="fab fa-aws"></i> AWS Glue</div>
+                                <div class="skill-item"><i class="fab fa-aws"></i> AWS Athena</div>
+                                <div class="skill-item"><i class="fab fa-aws"></i> AWS Redshift</div>
+                                <div class="skill-item"><i class="fas fa-snowflake"></i> Snowflake</div>
+                                <div class="skill-item"><i class="fas fa-chart-bar"></i> Tableau</div>
+                                <div class="skill-item"><i class="fas fa-chart-bar"></i> Power BI</div>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <h3>Machine Learning & AI</h3>
+                            <div class="skills-grid">
+                                <div class="skill-item"><i class="fas fa-brain"></i> CNNs</div>
+                                <div class="skill-item"><i class="fas fa-brain"></i> SVM</div>
+                                <div class="skill-item"><i class="fas fa-brain"></i> Ensemble Models</div>
+                                <div class="skill-item"><i class="fas fa-code"></i> TensorFlow</div>
+                                <div class="skill-item"><i class="fas fa-code"></i> Keras</div>
+                                <div class="skill-item"><i class="fas fa-language"></i> NLP</div>
+                                <div class="skill-item"><i class="fas fa-eye"></i> Computer Vision</div>
+                                <div class="skill-item"><i class="fas fa-robot"></i> OpenAI CLIP</div>
+                                <div class="skill-item"><i class="fas fa-robot"></i> OpenAI GPT</div>
+                                <div class="skill-item"><i class="fas fa-robot"></i> LLMs</div>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <h3>Data Skills</h3>
+                            <div class="skills-grid">
+                                <div class="skill-item"><i class="fas fa-exchange-alt"></i> ETL Pipelines</div>
+                                <div class="skill-item"><i class="fas fa-warehouse"></i> Data Warehousing</div>
+                                <div class="skill-item"><i class="fas fa-chart-line"></i> Data Visualization</div>
+                            </div>
+                        </div>
+                        <div class="ds-watermark">3D Cluster: Categorized Skills</div>
+                        <canvas class="ds-canvas" data-ds="cluster"></canvas>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="contact">
+                        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                        <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+                        <p>I’d love to connect and talk about potential opportunities. Feel free to reach out using the form below, or find me on <a href="https://www.linkedin.com/in/manotadikonda/" target="_blank">LinkedIn</a>.</p>
+                        <form id="contact-form">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="email" placeholder="Your Email" required>
+                            <textarea placeholder="Your Message" required></textarea>
+                            <button type="submit">Send Message</button>
+                        </form>
+                        <div class="ds-watermark">3D Network: Connections</div>
+                        <canvas class="ds-canvas" data-ds="network"></canvas>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="wrap-up">
+                        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+                        <h2><i class="fas fa-heart"></i> Thanks for Visiting!</h2>
+                        <p>Thanks for taking the time to explore my portfolio—I hope it gave you a good sense of my journey and skills in tech. I’m excited to keep growing and making a difference in the industry.</p>
+                        <div class="ds-watermark">3D Network: Connections</div>
+                        <canvas class="ds-canvas" data-ds="network"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <!-- Pick Your Path Menu -->
+    <div id="menu" class="hidden">
+        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+        <h2>Explore My Portfolio</h2>
+        <div class="menu-options">
+            <button class="menu-btn" data-section="summary">Summary</button>
+            <button class="menu-btn" data-section="education">Education</button>
+            <button class="menu-btn" data-section="tech-skills">Tech Skills</button>
+            <button class="menu-btn" data-section="projects">Projects</button>
+            <button class="menu-btn" data-section="work-experience">Work Experience</button>
+            <button class="menu-btn" data-section="leadership-activities">Leadership & Activities</button>
+            <button class="menu-btn" data-section="get-started">Back to Start</button>
+        </div>
+        <div class="ds-watermark">3D Tree: Hierarchical Navigation</div>
+        <canvas class="ds-canvas" data-ds="tree"></canvas>
+    </div>
+
+    <!-- Summary Section -->
+    <div id="summary" class="hidden section-content">
+        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+        <h2><i class="fas fa-user"></i> Summary</h2>
+        <p>I’m a passionate grad student in Information Systems at Northeastern University, with a strong foundation in data science, machine learning, and cloud computing. I’ve worked as an AWS Data Engineer at Cognizant, where I built data pipelines for large-scale migrations, and I’ve led impactful projects like WoofAid to support stray animals during the Covid-19 pandemic. My technical skills span Python, Java, React.js, AWS, and TensorFlow, and I’m always eager to tackle new challenges and make a difference through technology.</p>
+        <div class="ds-watermark">3D Network: Overview of Experiences</div>
+        <canvas class="ds-canvas" data-ds="network"></canvas>
+    </div>
+
+    <!-- Education Section -->
+    <div id="education" class="hidden section-content">
+        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+        <h3>Masters in Information Systems (Sep 2024 - May 2026)</h3>
+        <p>I’m currently pursuing a Masters in Information Systems at Northeastern University, starting in September 2024, and it’s been an incredible opportunity to dive deeper into tech. My courses—App Engineering and Development, Data Science with Python, Database Design, and Programming & Algorithms—are helping me build advanced skills in software development and data science. I’m getting hands-on with Python libraries like Pandas and Scikit-learn for data analysis, learning to design efficient databases with both SQL and NoSQL systems, and exploring how to build modern applications. Working on projects with classmates from around the world has also taught me how to collaborate in diverse teams, which has been great for refining my technical and interpersonal skills as I prepare for bigger roles in tech.</p>
+        <h3>Bachelors in Information Technology (2018-2022)</h3>
+        <p>I graduated with a Bachelors in Information Technology from Osmania University in Hyderabad back in June 2022, and it was such a formative experience for me. My courses—like Algorithms, Operating Systems, Machine Learning, Statistical Modeling, Distributed Systems, Computer Networks, and Database Systems—gave me a solid grounding in the tech world. I got hands-on with programming in C, C++, Java, and Python, which I used in projects like building a campus navigation system with Dijkstra’s algorithm in C++ to find the shortest paths between buildings. I also created a library management system with a relational database in SQL, figuring out how to structure tables and queries to keep everything running smoothly. Working on a group project where we built a file-sharing app using socket programming in Java taught me how to collaborate effectively, divvy up tasks, and explain technical ideas to my teammates and professors, which really boosted my teamwork and communication skills.</p>
+        <div class="ds-watermark">3D Network: Structured Learning</div>
+        <canvas class="ds-canvas" data-ds="network"></canvas>
+    </div>
+
+    <!-- Tech Skills Section -->
+    <div id="tech-skills" class="hidden section-content">
+        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+        <h2><i class="fas fa-tools"></i> Tech Skills</h2>
+        <div class="skills-category">
+            <h3>Programming Languages</h3>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+                <div class="skill-item"><i class="fab fa-java"></i> Java</div>
+                <div class="skill-item"><i class="fas fa-code"></i> C</div>
+                <div class="skill-item"><i class="fas fa-code"></i> C++</div>
+                <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
+            </div>
+        </div>
+        <div class="skills-category">
+            <h3>Front-End Development</h3>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fab fa-react"></i> React.js</div>
+                <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+                <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+                <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+                <div class="skill-item"><i class="fas fa-code"></i> Vite</div>
+            </div>
+        </div>
+        <div class="skills-category">
+            <h3>Back-End Development</h3>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fas fa-server"></i> FastAPI</div>
+                <div class="skill-item"><i class="fab fa-node-js"></i> Node.js</div>
+                <div class="skill-item"><i class="fas fa-server"></i> Express</div>
+                <div class="skill-item"><i class="fas fa-link"></i> RESTful APIs</div>
+                <div class="skill-item"><i class="fas fa-database"></i> MySQL</div>
+                <div class="skill-item"><i class="fas fa-database"></i> PostgreSQL</div>
+                <div class="skill-item"><i class="fas fa-database"></i> MongoDB</div>
+            </div>
+        </div>
+        <div class="skills-category">
+            <h3>Tools & Technologies</h3>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fab fa-aws"></i> AWS Lambda</div>
+                <div class="skill-item"><i class="fab fa-aws"></i> AWS S3</div>
+                <div class="skill-item"><i class="fab fa-aws"></i> AWS Glue</div>
+                <div class="skill-item"><i class="fab fa-aws"></i> AWS Athena</div>
+                <div class="skill-item"><i class="fab fa-aws"></i> AWS Redshift</div>
+                <div class="skill-item"><i class="fas fa-snowflake"></i> Snowflake</div>
+                <div class="skill-item"><i class="fas fa-chart-bar"></i> Tableau</div>
+                <div class="skill-item"><i class="fas fa-chart-bar"></i> Power BI</div>
+            </div>
+        </div>
+        <div class="skills-category">
+            <h3>Machine Learning & AI</h3>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fas fa-brain"></i> CNNs</div>
+                <div class="skill-item"><i class="fas fa-brain"></i> SVM</div>
+                <div class="skill-item"><i class="fas fa-brain"></i> Ensemble Models</div>
+                <div class="skill-item"><i class="fas fa-code"></i> TensorFlow</div>
+                <div class="skill-item"><i class="fas fa-code"></i> Keras</div>
+                <div class="skill-item"><i class="fas fa-language"></i> NLP</div>
+                <div class="skill-item"><i class="fas fa-eye"></i> Computer Vision</div>
+                <div class="skill-item"><i class="fas fa-robot"></i> OpenAI CLIP</div>
+                <div class="skill-item"><i class="fas fa-robot"></i> OpenAI GPT</div>
+                <div class="skill-item"><i class="fas fa-robot"></i> LLMs</div>
+            </div>
+        </div>
+        <div class="skills-category">
+            <h3>Data Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fas fa-exchange-alt"></i> ETL Pipelines</div>
+                <div class="skill-item"><i class="fas fa-warehouse"></i> Data Warehousing</div>
+                <div class="skill-item"><i class="fas fa-chart-line"></i> Data Visualization</div>
+            </div>
+        </div>
+        <div class="ds-watermark">3D Cluster: Categorized Skills</div>
+        <canvas class="ds-canvas" data-ds="cluster"></canvas>
+    </div>
+
+    <!-- Projects Section -->
+    <div id="projects" class="hidden section-content">
+        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+        <h2><i class="fas fa-code"></i> Projects</h2>
+        <h3>Hackathon Projects</h3>
+        <p>At my first hackathon at Northeastern, I worked on a Legal Document Analyzer, a tool to extract key details from legal texts using natural language processing. I used SpaCy for named entity recognition to pull out things like dates, names, and clauses, and integrated a BERT model to classify documents—like contracts or wills—with 92% accuracy. I built the backend with FastAPI to process the data quickly and created a React frontend to show the results in a clean, easy-to-read table. My team took 2nd place, which was a proud moment and showed I could deliver solid solutions under tight deadlines. My second project was the AI Stylist app, an AI-powered outfit recommendation system. I set up a client-server setup with a React.js frontend using Vite for a fast, smooth UI, and a FastAPI backend to handle the heavy lifting. Using OpenAI’s CLIP model, I made the system analyze clothing details—like type, color, and material—from user-uploaded images. I added real-time weather data through APIs to make weather-appropriate suggestions and let users pick their style preferences, like casual or formal, so the AI could recommend outfits that fit their vibe. The system’s design is modular, supporting different AI models like Hugging Face and Ollama, which makes it easy to scale up in the future.</p>
+        <h3>University Project - Age and Gender Analysis Using Machine Learning</h3>
+        <p>During my time at Osmania University, I worked on an Age and Gender Analysis project using Machine Learning, which really got me excited about data science. I built a convolutional neural network (CNN) with Python and TensorFlow to predict someone’s age and gender from facial images, training it on the UTKFace dataset with 20,000 images. I had to preprocess the data carefully—resizing images, normalizing them, and using data augmentation to handle things like poor lighting or uneven age groups in the dataset. After tweaking the model’s learning rate and batch size, I got it to an accuracy of 87%, which felt like a big win. I presented the project at our university’s tech fest, and the faculty appreciated how it could be used for demographic analysis in real-world scenarios. This project helped me get better at building ML models, cleaning up data, and talking about my work in a clear, technical way.</p>
+        <div class="ds-watermark">3D Graph: Project Connections</div>
+        <canvas class="ds-canvas" data-ds="graph"></canvas>
+    </div>
+
+    <!-- Work Experience Section -->
+    <div id="work-experience" class="hidden section-content">
+        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+        <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+        <h3>Cognizant Full-Time - AWS Data Engineer (Dec 2022 - Dec 2023)</h3>
+        <p>In December 2022, I joined Cognizant full-time as an AWS Data Engineer, working on a historical data migration project for Blue Cross Blue Shield Association, which was a huge learning experience. My role involved building and managing data pipelines to migrate over 50 terabytes of sensitive health and personal data, using AWS Glue for ETL processes to extract, transform, and load the data efficiently. I stored the data securely in Amazon S3, set up Amazon Redshift for data warehousing to support analytics, and used AWS Lake Formation to manage data access and governance across the project. Since the data was highly sensitive, I implemented encryption with AWS KMS and set up fine-grained access controls using IAM roles to meet strict healthcare compliance standards. Our team followed agile practices, using Jira to track tasks and holding sprint planning sessions every two weeks to prioritize deliverables and address blockers. I also leveraged AWS Step Functions to orchestrate complex workflows, ensuring the pipelines ran smoothly, and used Amazon CloudWatch to monitor job performance, setting up alarms for any failures. By optimizing the Glue jobs with parallel processing and refining Redshift schemas, I helped reduce migration time by 15%. Working with a seasoned team, I deepened my understanding of big data technologies, cloud architecture, and secure data management, learning how to handle large-scale projects with precision and care.</p>
+        <h3>Cognizant Internship - Azure Project (Feb 2022 - Nov 2022)</h3>
+        <p>I started my internship at Cognizant in February 2022 while finishing up my final year at Osmania University, and it was my first real taste of working in tech. I joined a team migrating an on-premises inventory management app to Azure, where I worked with Azure App Services to deploy the application and Azure Blob Storage to handle product images and transaction logs. One of my tasks was building a monitoring tool with Azure Monitor and Log Analytics, setting up alerts for when CPU or memory usage got too high so we could keep the system stable. On weekends, we had assessments where I created a cost optimization dashboard using Azure Cost Management APIs, which helped the team spot underused resources and cut costs by 10%. I was thrilled to be named one of the Top 10 GenZ Interns, which gave me the chance to present my work to senior leaders. The internship really sharpened my skills in cloud computing, Azure tools, and solving problems under pressure.</p>
+        <div class="ds-watermark">3D Stack: Work Responsibilities</div>
+        <canvas class="ds-canvas" data-ds="stack"></canvas>
+    </div>
+
+    <!-- Leadership and Other Activities Section -->
+    <div id="leadership-activities" class="hidden section-content">
+        <button class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+        <h2><i class="fas fa-users"></i> Leadership & Other Activities</h2>
+        <h3>Experiential Spring Break (Mar 2025)</h3>
+        <p>In March 2025, I was a group leader for Experiential Spring Break at Northeastern University, a week-long program that mixed tech learning with professional growth. On the first day, I visited OneSixOne Ventures to learn about venture capital, getting a sense of investment strategies and what it takes to break into that field. The next day, I took a private course at AWS Skills Center on Demystifying Generative AI, where I explored the differences between AI and ML and how they’re used in the real world. On day three, I toured T-Mobile’s HQ, joining a panel discussion and networking session that showed me how data drives telecom innovation. The fourth day was a visit to Microsoft’s campus, hosted by an NU-Seattle alumna, where I learned about their AI work and got to check out the Xbox room. The week wrapped up with a Prompt Engineering session, which helped me get better at crafting AI interactions. I also made some great connections while exploring Seattle spots like the Space Needle, Pike Place Market, and Bellevue Downtown Park, blending tech insights with fun cultural experiences.</p>
+        <h3>WoofAid (Dec 2020 - Dec 2022)</h3>
+        <p>In December 2020, I co-founded WoofAid with a few friends to help stray dogs and cats in Hyderabad during the Covid-19 pandemic, as many people wrongly believed these animals were spreading the virus. We organized food drives and set up temporary shelters, managing to care for over 200 animals in our first year. I took the lead on coordinating a team of 10 volunteers, handling logistics, managing donations, and spreading the word through social media campaigns that reached over 5,000 people. After 18 months, we got the local government on board, and six months later, we handed over the operations to them so I could focus on starting my career. Our work got some attention at Osmania University, and I was invited for a radio interview by a student club, which was a great chance to share our story. Leading WoofAid taught me how to manage projects, work with a team, and speak confidently about something I cared about. [Placeholder for pictures and video]</p>
+        <div class="ds-watermark">3D Cluster: Leadership Connections</div>
+        <canvas class="ds-canvas" data-ds="cluster"></canvas>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="hidden"><i class="fas fa-arrow-up"></i> Back to Top</button>
+
+    <!-- Load Swiper.js Script -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

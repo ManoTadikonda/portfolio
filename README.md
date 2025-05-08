@@ -1,3 +1,4 @@
+# Mano Tadikonda – Portfolio Website
 
 This repository contains the source code for my personal portfolio website, built using HTML, CSS, and JavaScript with support from libraries such as Swiper.js and Three.js. The goal is to offer a technically rich, interactive representation of my academic, professional, and personal journey.
 

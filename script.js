@@ -246,4 +246,40 @@ document.addEventListener('DOMContentLoaded', () => {
             animate();
         });
     };
-});
+// Your existing DOMContentLoaded code...
+const slideshowImages = [
+    'img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg',
+    'img6.jpg', 'img7.jpg', 'img8.jpg', 'img9.jpg', 'img10.jpg',
+    'img11.jpg', 'img12.jpg', 'img13.jpg', 'img14.jpg', 'img15.jpg',
+    'img16.jpg', 'img17.jpg', 'img18.jpg', 'img19.jpg'
+  ];
+  
+  const displayDurations = [1200, 1000, 800, 800, 700, 700, 500, 500, 400, 500, 600, 700, 700, 800, 1000, 1200, 1100, 1100, 1100].map(d => Math.max(150, d * 0.5));
+
+  
+  let current = 0;
+  const slideshow = document.getElementById('intro-slideshow');
+  const imageEl = document.getElementById('slideshow-image');
+  
+  function showNextImage() {
+    if (current >= slideshowImages.length) {
+      slideshow.style.display = 'none';
+      return;
+    }
+    slideshow.style.display = 'flex';
+    imageEl.src = slideshowImages[current];
+    setTimeout(() => {
+      current++;
+      showNextImage();
+    }, displayDurations[current]);
+  }
+  
+  window.addEventListener('load', () => {
+    setTimeout(showNextImage, 6700); // wait till after "Hi I am Mano" animations
+  });
+  
+}); // closes DOMContentLoaded
+
+// ===== Slideshow Code Starts Here =====
+
+
